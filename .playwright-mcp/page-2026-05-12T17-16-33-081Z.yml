@@ -1,0 +1,106 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "MHN." [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Projects" [ref=e5] [cursor=pointer]:
+        - /url: /#projects
+      - link "Experiences" [ref=e6] [cursor=pointer]:
+        - /url: /#experiences
+      - link "Contact" [ref=e7] [cursor=pointer]:
+        - /url: mailto:hisyam@example.com
+    - link "Hire Me" [ref=e8] [cursor=pointer]:
+      - /url: mailto:hisyam@example.com
+  - main [ref=e9]:
+    - main [ref=e10]:
+      - generic [ref=e12]:
+        - heading "THE MECHANIC BEHIND THE MACHINE." [level=1] [ref=e13]
+        - generic:
+          - generic: THE MECHANIC BEHIND THE MACHINE.
+      - generic [ref=e15]:
+        - img "Muhammad Hisyam Nugroho" [ref=e19]
+        - generic [ref=e20]:
+          - heading "The Story" [level=2] [ref=e21]
+          - paragraph [ref=e23]: Seorang profesional Sistem Informasi yang sangat adaptif yang berdedikasi untuk mendorong keunggulan operasional dan transformasi digital dalam lingkungan UMKM dan perusahaan.
+          - paragraph [ref=e24]: Lanskap bisnis modern membutuhkan pemimpin yang dapat dengan mulus menjembatani kesenjangan antara infrastruktur teknis dan strategi operasional.
+          - paragraph [ref=e25]: Memanfaatkan fondasi akademik yang kuat (IPK 3,87) dikombinasikan dengan kepemimpinan langsung dalam program perusahaan, inisiatif komunitas, dan operasi ritel.
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - button "Projects" [ref=e29]
+        - button "Skills" [ref=e30]
+        - button "Experiences" [ref=e31]
+        - button "Organizations" [ref=e32]
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - button "All" [ref=e37] [cursor=pointer]
+          - button "ASAH Project" [ref=e38] [cursor=pointer]
+          - button "Ilmu Data & Web (Data Science)" [ref=e39] [cursor=pointer]
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - img "Thumbnail untuk Evaluasi Formatif AI" [ref=e43]
+            - generic [ref=e44]:
+              - heading "Evaluasi Formatif AI" [level=3] [ref=e45]
+              - paragraph [ref=e46]: Merancang sistem bertenaga AI yang memanfaatkan Gemini API untuk mengotomatisasi pembuatan penilaian formatif.
+              - generic [ref=e47]:
+                - generic [ref=e48]: Gemini API
+                - generic [ref=e49]: React
+                - generic [ref=e50]: Local Storage
+                - generic [ref=e51]: EdTech
+              - generic [ref=e52]:
+                - link "Case Study" [ref=e53] [cursor=pointer]:
+                  - /url: /projects/asah-project
+                - link "GitHub" [ref=e54] [cursor=pointer]:
+                  - /url: https://github.com/
+          - generic [ref=e55]:
+            - img "Thumbnail untuk Bonbon Bakery - Profil Perusahaan & Segmentasi UMKM" [ref=e57]
+            - generic [ref=e58]:
+              - heading "Bonbon Bakery - Profil Perusahaan & Segmentasi UMKM" [level=3] [ref=e59]
+              - paragraph [ref=e60]: Mengeksekusi klasterisasi tingkat lanjut pada lebih dari 136.000 transaksi dan membangun profil perusahaan untuk mendorong strategi bisnis berbasis data.
+              - generic [ref=e61]:
+                - generic [ref=e62]: K-Means
+                - generic [ref=e63]: Python
+                - generic [ref=e64]: Web Development
+                - generic [ref=e65]: Analitik
+              - generic [ref=e66]:
+                - link "Case Study" [ref=e67] [cursor=pointer]:
+                  - /url: /projects/data-science
+                - link "Live Demo" [ref=e68] [cursor=pointer]:
+                  - /url: https://bonbon.great-site.net/
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - heading "Technical Specs" [level=2] [ref=e72]
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: Strategy
+            - generic [ref=e76]: Digital
+          - generic [ref=e77]:
+            - generic [ref=e78]: Process
+            - generic [ref=e79]: Operations
+          - generic [ref=e80]:
+            - generic [ref=e81]: Data
+            - generic [ref=e82]: Analytics
+          - generic [ref=e83]:
+            - generic [ref=e84]: Manage
+            - generic [ref=e85]: Product
+      - generic [ref=e86]:
+        - heading "Core Skills" [level=2] [ref=e87]
+        - list [ref=e88]:
+          - listitem [ref=e89]: Perencanaan Strategis
+          - listitem [ref=e91]: Transformasi Digital
+          - listitem [ref=e93]: Kepemimpinan Lintas Fungsional
+          - listitem [ref=e95]: Manajemen Pemangku Kepentingan
+    - generic [ref=e97]:
+      - heading "READY TO ASSEMBLE SOMETHING NEW?" [level=2] [ref=e98]
+      - link "START A PROJECT" [ref=e99] [cursor=pointer]:
+        - /url: mailto:hisyam@example.com
+  - contentinfo [ref=e100]:
+    - generic [ref=e101]: © 2026 MUHAMMAD HISYAM NUGROHO. BUILT WITH MECHANICAL WHIMSY.
+    - generic [ref=e102]:
+      - link "LinkedIn" [ref=e103] [cursor=pointer]:
+        - /url: https://linkedin.com/in/
+      - link "GitHub" [ref=e104] [cursor=pointer]:
+        - /url: https://github.com/
+      - link "Contact" [ref=e105] [cursor=pointer]:
+        - /url: mailto:hisyam@example.com
+      - link "Console Log" [ref=e106] [cursor=pointer]:
+        - /url: /console
