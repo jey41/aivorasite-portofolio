@@ -4,8 +4,6 @@ import {
     Sparkles,
     Zap,
     BarChart3,
-    Briefcase,
-    PenTool,
 } from 'lucide-react';
 
 export interface BusinessCaseContent {
@@ -186,32 +184,6 @@ export const achievementsData: AchievementItem[] = [
 
 export const experienceData: ExperienceItem[] = [
     {
-        id: 'tas-rikko',
-        title: "Rekan Operasional",
-        subtitle: "Tas Rikko (UMKM Ritel)",
-        date: "Agustus 2025 — Sekarang",
-        shortDesc: "Mengoptimalkan operasional ritel, kontrol inventaris, dan manajemen vendor B2B untuk UMKM yang sedang berkembang.",
-        businessCase: {
-            role: "Rekan Operasional",
-            strategicOverview: "Merampingkan rantai pasokan dan operasional harian untuk mendukung perluasan UMKM regional di sektor ritel.",
-            businessContext: "Menghadapi peningkatan permintaan, bisnis membutuhkan kerangka kerja operasional yang kuat untuk menangani perputaran inventaris dan volume pelanggan yang lebih tinggi.",
-            coreChallenge: "Mencegah kehabisan stok dan mengelola hubungan vendor yang kompleks sambil mempertahankan standar layanan yang tinggi.",
-            strategicApproach: "Menerapkan mekanisme kontrol inventaris terstruktur dan mengoptimalkan alur pemesanan B2B untuk memastikan ketersediaan produk yang maksimal.",
-            executionHighlights: [
-                "Mengelola operasional ritel harian dan hubungan akun reseller dari ujung ke ujung.",
-                "Merombak protokol manajemen inventaris untuk mengurangi perbedaan stok.",
-                "Menyelesaikan keluhan pelanggan yang dieskalasi untuk menjaga reputasi merek."
-            ],
-            impactMetrics: [
-                "Meningkatkan akurasi inventaris dan mengurangi insiden kehabisan stok sebesar 25%.",
-                "Berhasil mengelola operasi selama musim puncak ritel.",
-                "Meningkatkan retensi reseller B2B melalui manajemen hubungan yang proaktif."
-            ],
-            keySkills: ["Operasional Rantai Pasokan", "Manajemen UMKM", "Hubungan Vendor", "Optimalisasi Proses"]
-        },
-        iconName: "Briefcase"
-    },
-    {
         id: 'pr-unmul',
         title: "Jurnalis",
         subtitle: "Humas Universitas Mulawarman",
@@ -238,30 +210,30 @@ export const experienceData: ExperienceItem[] = [
         iconName: "PenTool"
     },
     {
-        id: 'amy-laundry',
-        title: "Ketua Operasional & Hubungan Pelanggan",
-        subtitle: "Amy Laundry M. Said",
-        date: "Maret 2024 — Oktober 2024",
-        shortDesc: "Mengarahkan operasi multi-cabang, mencapai peningkatan laba kotor sebesar 11,11% melalui desain ulang proses.",
+        id: 'komisi-ii-dprd-kaltim',
+        title: "Web Developer",
+        subtitle: "Komisi II DPRD Provinsi Kalimantan Timur",
+        date: "Februari 2026 — Mei 2026",
+        shortDesc: "Membangun sistem tracking jadwal anggota Komisi II yang dikelola oleh staf untuk meningkatkan visibilitas agenda dan koordinasi internal.",
         businessCase: {
-            role: "Ketua Operasional & Hubungan Pelanggan",
-            strategicOverview: "Memimpin perbaikan operasional menyeluruh untuk UMKM multi-cabang, mendorong profitabilitas melalui integrasi sistem dan promosi strategis.",
-            businessContext: "Bisnis mengoperasikan beberapa cabang dengan pembukuan yang terfragmentasi dan standar operasional yang tidak konsisten, yang merugikan margin keseluruhan.",
-            coreChallenge: "Menstandardisasi operasi di seluruh lokasi sekaligus memotivasi staf dan meningkatkan retensi pelanggan di pasar lokal yang kompetitif.",
-            strategicApproach: "Menerapkan solusi pembukuan digital di seluruh cabang, mengoptimalkan penjadwalan staf, dan merancang kampanye promosi berbasis data.",
+            role: "Web Developer",
+            strategicOverview: "Mengembangkan aplikasi internal untuk membantu staf Komisi II DPRD Provinsi Kalimantan Timur memantau, memperbarui, dan mengelola jadwal anggota secara lebih terstruktur.",
+            businessContext: "Koordinasi agenda anggota komisi membutuhkan sistem yang mudah dipakai staf agar perubahan jadwal dapat tercatat dan dilacak dengan rapi.",
+            coreChallenge: "Menyederhanakan alur pencatatan jadwal menjadi pengalaman web yang jelas, cepat, dan mudah dipelihara untuk kebutuhan operasional harian.",
+            strategicApproach: "Merancang sistem tracking berbasis web dengan fokus pada visibilitas jadwal, pembaruan data oleh staf, dan struktur informasi yang mudah dipantau.",
             executionHighlights: [
-                "Mengorkestrasi logistik harian dan distribusi rantai pasokan di berbagai lokasi.",
-                "Mengimplementasikan sistem pembukuan keuangan digital yang terpadu.",
-                "Merancang dan mengeksekusi strategi promosi yang ditargetkan selama periode pasar puncak."
+                "Membangun sistem tracking jadwal anggota Komisi II yang dapat dikelola oleh staf.",
+                "Menyusun tampilan agenda agar status dan perubahan jadwal lebih mudah dipantau.",
+                "Membantu digitalisasi proses koordinasi jadwal yang sebelumnya bergantung pada pencatatan manual."
             ],
             impactMetrics: [
-                "Menghasilkan peningkatan laba kotor terverifikasi sebesar 11,11%.",
-                "Mencapai transparansi operasional 100% melalui sistem digital baru.",
-                "Meningkatkan efisiensi karyawan dan mengurangi biaya overhead."
+                "Meningkatkan keterlacakan agenda anggota komisi.",
+                "Mempermudah staf dalam memperbarui dan memonitor jadwal harian.",
+                "Mengurangi risiko miskomunikasi melalui informasi jadwal yang lebih terpusat."
             ],
-            keySkills: ["Kepemimpinan Operasional", "Optimalisasi Keuangan", "Manajemen P&L", "Strategi Bisnis"]
+            keySkills: ["Web Development", "Sistem Informasi", "Manajemen Jadwal", "Digitalisasi Operasional"]
         },
-        iconName: "BarChart3"
+        iconName: "Code"
     }
 ];
 

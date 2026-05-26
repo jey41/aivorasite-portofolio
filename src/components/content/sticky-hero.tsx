@@ -37,7 +37,7 @@ export function StickyHero() {
   });
 
   return (
-    <main ref={container} data-hero-about-region className="relative h-[200vh] bg-background">
+    <main ref={container} data-hero-about-region className="relative h-[212vh] bg-background">
       <Section1 scrollYProgress={scrollYProgress} />
       <Section2 scrollYProgress={scrollYProgress} />
     </main>
@@ -52,7 +52,7 @@ const Section1 = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> })
     <motion.section
       style={{ scale, rotate }}
       data-standard-cursor
-      className="sticky top-0 h-screen w-full bg-background border-b-4 border-on-surface flex flex-col items-center justify-center text-center px-8"
+      className="sticky top-0 h-screen w-full bg-background flex flex-col items-center justify-center text-center px-8"
     >
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#1d1c14_1px,transparent_1px),linear-gradient(to_bottom,#1d1c14_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"></div>
 
@@ -71,7 +71,7 @@ const Section2 = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> })
     <motion.section
       style={{ scale, rotate }}
       id="about"
-      className="relative h-screen w-full origin-center bg-primary-container border-b-4 border-on-surface py-20 px-8 flex items-center justify-center overflow-hidden"
+      className="relative h-[112vh] min-h-screen w-full origin-center bg-primary-container py-20 px-8 flex items-center justify-center overflow-hidden"
     >
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#1d1c14_1px,transparent_1px),linear-gradient(to_bottom,#1d1c14_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10 pointer-events-none"></div>
       

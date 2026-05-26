@@ -2,11 +2,10 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
-type CursorMode = 'hidden' | 'default' | 'text';
+type CursorMode = 'hidden' | 'default';
 
 export function CustomCursor() {
   const tailRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const comicCursorRef = useRef<HTMLDivElement | null>(null);
   const cursorModeRef = useRef<CursorMode>('hidden');
   
   const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -31,21 +30,6 @@ export function CustomCursor() {
       setCursorMode(nextMode);
     };
 
-    const isTextTarget = (target: EventTarget | null) => {
-      if (!(target instanceof Element)) {
-        return false;
-      }
-
-      if (target.closest('[data-local-cursor], [data-standard-cursor]')) {
-        return false;
-      }
-
-      const interactiveTarget = target.closest('a, button, input, textarea, select, [role="button"]');
-      const textTarget = target.closest('h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, label, strong, em');
-
-      return Boolean(textTarget && !interactiveTarget);
-    };
-
     // Smooth following variables for the cursor tails (5 squares)
     const tails = Array.from({ length: 5 }).map(() => ({ x: mouseX, y: mouseY }));
     
@@ -58,7 +42,7 @@ export function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      updateCursorMode(isTextTarget(e.target) ? 'text' : 'default');
+      updateCursorMode('default');
     };
 
     const onMouseLeave = () => {
@@ -89,11 +73,6 @@ export function CustomCursor() {
           el.style.transform = `translate3d(${tail.x}px, ${tail.y}px, 0)`;
         }
       });
-
-      const comicCursor = comicCursorRef.current;
-      if (comicCursor) {
-        comicCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-      }
 
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -143,44 +122,15 @@ export function CustomCursor() {
 
   if (cursorMode === 'hidden' || typeof window === 'undefined') return null;
 
-  const isTextMode = cursorMode === 'text';
-
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
-      <div
-        ref={comicCursorRef}
-        className="absolute top-0 left-0 pointer-events-none"
-        style={{
-          width: '96px',
-          height: '96px',
-          marginLeft: '-48px',
-          marginTop: '-48px',
-          willChange: 'transform',
-          zIndex: 20,
-        }}
-      >
-        <div
-          className={`relative h-full w-full rounded-full border-4 border-on-surface bg-primary-container/70 shadow-[6px_6px_0_var(--color-on-surface)] transition-all duration-150 ease-out ${
-            isTextMode ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
-          }`}
-          style={{
-            backgroundImage: 'radial-gradient(var(--color-on-surface) 1.2px, transparent 1.4px)',
-            backgroundSize: '9px 9px',
-          }}
-        >
-          <span className="absolute -right-2 top-3 h-5 w-5 rounded-full border-4 border-on-surface bg-secondary-container" />
-          <span className="absolute -bottom-1 left-3 h-3 w-10 -rotate-12 rounded-full bg-on-surface" />
-          <span className="absolute left-5 top-5 h-3 w-8 rotate-12 rounded-full bg-background/80" />
-        </div>
-      </div>
-
       {/* 5 ROTATING SQUARES (TAIL) */}
       {[0, 1, 2, 3, 4].map((index) => {
         // Different sizes for the 5 boxes
-        const sizes = isTextMode ? [24, 18, 14, 10, 8] : [32, 48, 32, 24, 16];
+        const sizes = [32, 48, 32, 24, 16];
         const size = sizes[index];
         const offset = size / 2;
-        const opacity = isTextMode ? 0.85 - index * 0.16 : 1 - index * 0.15;
+        const opacity = 1 - index * 0.15;
 
         // Same spin animation for all, or slightly different
         const spinClasses = [
@@ -209,11 +159,7 @@ export function CustomCursor() {
             }}
           >
             <div
-              className={`h-full w-full ${
-                isTextMode
-                  ? 'rounded-full border-[3px] border-on-surface bg-secondary-container'
-                  : 'border-2 border-playdate-yellow'
-              } ${spinClasses[index]}`}
+              className={`h-full w-full border-2 border-playdate-yellow ${spinClasses[index]}`}
             />
           </div>
         );

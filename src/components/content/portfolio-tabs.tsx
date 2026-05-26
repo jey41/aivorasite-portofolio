@@ -54,6 +54,7 @@ export function PortfolioTabs() {
             <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="flex flex-col gap-16">
                 {skillsData.map((category) => {
+                  const movesRight = category.name === 'Framework' || category.name === 'Tools';
                   const marqueeStyle: MarqueeStyle = {
                     '--marquee-duration': `${Math.max(category.skills.length * 4, 18)}s`,
                     '--marquee-gap': '1.5rem',
@@ -65,11 +66,14 @@ export function PortfolioTabs() {
                       {category.name}
                     </h3>
                     <div className="skills-marquee w-full overflow-hidden px-4 py-6 [mask-image:linear-gradient(to_right,transparent,black_14%,black_86%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_14%,black_86%,transparent)] sm:px-6" style={marqueeStyle}>
-                      <div className="skills-marquee-track flex w-max min-w-full items-center [gap:var(--marquee-gap)]">
+                      <div
+                        className="skills-marquee-track flex w-max min-w-full items-center [gap:var(--marquee-gap)]"
+                        style={{ animationDirection: movesRight ? 'reverse' : 'normal' }}
+                      >
                         {[false, true].map((isDuplicate) => (
                           <div
                             key={`${category.name}-${isDuplicate ? 'duplicate' : 'original'}`}
-                            className="flex shrink-0 items-center [gap:var(--marquee-gap)]"
+                            className="flex min-w-full shrink-0 items-center justify-around [gap:var(--marquee-gap)]"
                             aria-hidden={isDuplicate}
                           >
                             {category.skills.map((skill) => (
