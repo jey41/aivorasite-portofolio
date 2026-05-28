@@ -2,9 +2,10 @@
 
 import React, { useState, useMemo } from 'react';
 import { ProjectCard } from '@/components/content/project-card';
+import { getDetailItemPreviewPath, type ProjectItem } from '@/data/portfolio';
 
 interface FilterableProjectsProps {
-  projects: any[]; 
+  projects: ProjectItem[];
 }
 
 export function FilterableProjects({ projects }: FilterableProjectsProps) {
@@ -51,8 +52,8 @@ export function FilterableProjects({ projects }: FilterableProjectsProps) {
             subtitle={item.category}
             shortDesc={item.shortDesc}
             tags={item.tags}
-            date={item.date}
             link={item.link}
+            previewImageSrc={getDetailItemPreviewPath(item.id)}
           />
         ))}
       </div>

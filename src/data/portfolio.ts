@@ -405,3 +405,7 @@ export function getAllDetailItems(): DetailItem[] {
 export function getDetailItemById(id: string): DetailItem | undefined {
     return getAllDetailItems().find(item => item.id === id);
 }
+
+export function getDetailItemPreviewPath(id: string): string {
+    return `/projects/${id}/opengraph-image`;
+}

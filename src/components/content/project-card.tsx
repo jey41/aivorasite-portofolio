@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 
 interface ProjectCardProps {
@@ -8,24 +9,27 @@ interface ProjectCardProps {
   subtitle: string;
   shortDesc: string;
   tags?: string[];
-  date?: string;
   link?: string;
+  previewImageSrc: string;
 }
 
-export function ProjectCard({ id, title, subtitle, shortDesc, tags, date, link }: ProjectCardProps) {
+export function ProjectCard({ id, title, subtitle, shortDesc, tags, link, previewImageSrc }: ProjectCardProps) {
   return (
     <div className="bg-background border-4 border-on-surface p-0 flex flex-col h-full group btn-hover-effect">
-      {/* Image placeholder with grayscale hover effect */}
-      <div className="border-b-4 border-on-surface overflow-hidden aspect-video">
-        <img
-          src={`https://placehold.co/800x450/E8E5DF/18181B.png?text=Thumbnail+Proyek`}
-          alt={`Thumbnail untuk ${title}`}
-          className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+      <div className="relative border-b-4 border-on-surface overflow-hidden aspect-video">
+        <Image
+          src={previewImageSrc}
+          alt={`Pratinjau hero untuk ${title}`}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
         />
       </div>
 
-      {/* Content */}
       <div className="p-6 flex flex-col flex-grow">
+        <p className="font-label-bold text-label-bold uppercase tracking-wide text-secondary mb-3">
+          {subtitle}
+        </p>
         <h3 className="font-headline-md text-headline-md font-bold mb-4">{title}</h3>
         <p className="font-body-md text-body-md mb-6 flex-grow opacity-90">
           {shortDesc}
@@ -39,7 +43,6 @@ export function ProjectCard({ id, title, subtitle, shortDesc, tags, date, link }
           </div>
         )}
         
-        {/* Actions */}
         <div className="flex border-t-2 border-on-surface pt-4 justify-between font-label-bold text-label-bold uppercase flex-col sm:flex-row gap-2">
           <Link 
             href={`/projects/${id}`} 

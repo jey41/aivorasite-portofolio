@@ -2,9 +2,10 @@ import { notFound } from 'next/navigation';
 import { SectionBlock } from '@/components/layout/section-block';
 import { BusinessCaseView } from '@/components/content/business-case-view';
 import { Badge } from '@/components/ui/badge';
-import { getAllDetailItems, getDetailItemById } from '@/data/portfolio';
+import { getAllDetailItems, getDetailItemById, getDetailItemPreviewPath } from '@/data/portfolio';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -90,10 +91,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               rel="noopener noreferrer"
               className="group block relative w-full aspect-video bg-ink-wash rounded-[12px] border border-pure-white/10 overflow-hidden shadow-2xl"
             >
-              <img
-                src={`https://placehold.co/1280x720/E8E5DF/18181B.png?text=Tangkapan+Layar+Website%5Cn(Rasio+16:9)`}
+              <Image
+                src={getDetailItemPreviewPath(item.id)}
                 alt={`Preview of ${item.title}`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(min-width: 1024px) 1000px, 100vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-charcoal-text/0 group-hover:bg-charcoal-text/40 transition-colors duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-playdate-yellow text-charcoal-text font-bold px-6 py-3 rounded-full flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0">
