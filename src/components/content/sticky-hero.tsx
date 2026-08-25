@@ -10,20 +10,19 @@ import {
 import { useRef } from 'react';
 import { aboutData } from '@/data/portfolio';
 
-const heroHeadingText = 'THE MECHANIC BEHIND THE MACHINE.';
+const heroHeadingText = (
+  <>
+    Professional Website Developer<br />
+    &amp; Creative Agency Founder
+  </>
+);
 const heroHeadingClassName = 'font-display-lg text-display-lg-mobile md:text-display-lg font-black uppercase tracking-tighter';
 const aboutCopy = (
   <div className="max-w-xl">
-    <h2 className="font-headline-lg text-[44px] leading-[1.05] md:text-[56px] font-black mb-8 uppercase">The Story</h2>
+    <h2 className="font-headline-lg text-[44px] leading-[1.05] md:text-[56px] font-black mb-8 uppercase">product builder</h2>
     <div className="w-20 h-1.5 bg-pure-white mb-8"></div>
     <p className="font-body-md text-[20px] md:text-[24px] leading-[1.25] font-normal mb-6 opacity-90">
-      {aboutData.businessCase.strategicOverview}
-    </p>
-    <p className="font-body-md text-[20px] md:text-[24px] leading-[1.25] font-normal mb-6 opacity-90">
-      {aboutData.businessCase.businessContext}
-    </p>
-    <p className="font-body-md text-[20px] md:text-[24px] leading-[1.25] font-normal opacity-90">
-      {aboutData.businessCase.strategicApproach}
+      I'm a freelance web developer building digital solutions that scale with your ideas.
     </p>
   </div>
 );

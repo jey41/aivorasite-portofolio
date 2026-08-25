@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const steps = [
   {
@@ -91,14 +91,20 @@ export function Workflow() {
     offset: ["start start", "end end"]
   });
 
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <section ref={containerRef} className="w-full bg-background border-b-4 border-on-surface relative h-[400vh]">
+    <section id="workflow" ref={containerRef} className="w-full bg-background border-b-4 border-on-surface relative h-[600vh]">
       <div className="sticky top-0 w-full h-screen pt-28 md:pt-32 px-8 flex flex-col overflow-hidden">
         <div className="max-w-4xl mx-auto w-full flex-1 relative">
           
           <div className="text-center mb-16 relative z-0">
             <h2 className="font-display-lg text-[40px] md:text-[56px] font-black uppercase tracking-tighter mb-4 text-on-surface">
-              Alur Kerja
+              Work Flow
             </h2>
             <p className="font-body-lg text-[20px] md:text-[24px] opacity-90 text-on-surface">
               Proses kolaboratif untuk menghidupkan visi Anda.
@@ -111,7 +117,7 @@ export function Workflow() {
                 key={step.number} 
                 step={step} 
                 index={index} 
-                scrollYProgress={scrollYProgress} 
+                scrollYProgress={smoothProgress} 
               />
             ))}
           </div>

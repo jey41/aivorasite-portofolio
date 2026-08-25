@@ -121,7 +121,7 @@ export function Pricing() {
                       : 'bg-surface-variant text-on-surface hover:bg-primary-container'
                   }`}
                 >
-                  Order Sekarang
+                  Konsultasi Sekarang
                 </Link>
               </div>
             </div>
