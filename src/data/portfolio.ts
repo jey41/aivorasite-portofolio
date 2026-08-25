@@ -49,11 +49,10 @@ export interface ExperienceItem {
 export interface ProjectItem {
     id: string;
     title: string;
-    category: string;
     shortDesc: string;
     tags: string[];
     link?: string;
-    businessCase: BusinessCaseContent;
+    image: string;
 }
 
 // ─── Organizations ────────────────────────────────────────────
@@ -241,55 +240,28 @@ export const experienceData: ExperienceItem[] = [
 
 export const projectsData: ProjectItem[] = [
     {
-        id: 'asah-project',
-        title: "Evaluasi Formatif AI",
-        category: "ASAH Project",
-        shortDesc: "Merancang sistem bertenaga AI yang memanfaatkan Gemini API untuk mengotomatisasi pembuatan penilaian formatif.",
-        tags: ["Gemini API", "React", "Local Storage", "EdTech"],
-        businessCase: {
-            role: "Pengembang Utama & Arsitek",
-            strategicOverview: "Merancang dan mengembangkan platform evaluasi otomatis yang memanfaatkan AI Generatif untuk menskalakan mekanisme umpan balik pendidikan.",
-            businessContext: "Para pendidik menghabiskan waktu yang tidak proporsional untuk membuat dan menilai penilaian formatif, yang mengurangi ketersediaan mereka untuk interaksi bernilai tinggi dengan siswa.",
-            coreChallenge: "Mengintegrasikan kapabilitas LLM yang kompleks ke dalam antarmuka yang mulus dan ramah pengguna sambil memastikan keandalan perintah dan respons latensi rendah.",
-            strategicApproach: "Merancang klien berbasis React menggunakan rekayasa perintah (prompt engineering) yang ketat dengan Gemini API untuk menjamin output evaluasi yang konsisten dan terstruktur.",
-            executionHighlights: [
-                "Mengintegrasikan Gemini API untuk pembuatan pertanyaan dinamis dan koreksi jawaban instan.",
-                "Membangun antarmuka React yang responsif dengan penanganan kesalahan yang kuat dan status pemuatan.",
-                "Mengimplementasikan arsitektur penyimpanan lokal (local storage) yang persisten untuk manajemen sesi pengguna."
-            ],
-            impactMetrics: [
-                "Mengurangi waktu pembuatan penilaian sekitar 80%.",
-                "Mengaktifkan pengiriman umpan balik yang instan dan dapat diskalakan bagi pengguna akhir.",
-                "Berhasil memberikan MVP (Minimum Viable Product) lebih cepat dari jadwal."
-            ],
-            keySkills: ["Integrasi AI", "Prompt Engineering", "Arsitektur Frontend", "Pengembangan Produk"]
-        }
-    },
-    {
         id: 'data-science',
-        title: "Bonbon Bakery - Profil Perusahaan & Segmentasi UMKM",
-        category: "Ilmu Data & Web (Data Science)",
+        title: "Bonbon Ice Cream",
         shortDesc: "Mengeksekusi klasterisasi tingkat lanjut pada lebih dari 136.000 transaksi dan membangun profil perusahaan untuk mendorong strategi bisnis berbasis data.",
         tags: ["K-Means", "Python", "Web Development", "Analitik"],
         link: "https://bonbon.great-site.net/",
-        businessCase: {
-            role: "Analis Data",
-            strategicOverview: "Menjalankan inisiatif ilmu data komprehensif untuk mengungkap segmen pasar tersembunyi di dalam dataset transaksional berskala besar.",
-            businessContext: "Sebuah perusahaan regional membutuhkan intelijen yang dapat ditindaklanjuti dari data mentah transaksional untuk mengoptimalkan pengeluaran pemasaran dan penempatan produk.",
-            coreChallenge: "Membersihkan dan memproses dataset yang sangat bising berisi lebih dari 136.000 catatan untuk mengekstrak klaster perilaku yang signifikan secara statistik.",
-            strategicApproach: "Menggunakan metodologi CRISP-DM, memanfaatkan klasterisasi K-Means berbasis Python untuk memetakan pola dasar pembelian konsumen yang berbeda.",
-            executionHighlights: [
-                "Merancang alur data yang kuat untuk membersihkan, menormalkan, dan memproses data transaksi skala besar.",
-                "Menerapkan algoritma klasterisasi K-Means untuk menyegmentasi basis pelanggan.",
-                "Menerjemahkan output statistik yang kompleks menjadi rekomendasi strategis yang dapat ditindaklanjuti oleh para pemangku kepentingan."
-            ],
-            impactMetrics: [
-                "Berhasil memproses dan memodelkan lebih dari 136.000 catatan transaksi.",
-                "Mengidentifikasi 4 segmen pelanggan yang sangat berbeda, memungkinkan pemasaran yang ditargetkan.",
-                "Memberikan wawasan strategis yang secara langsung menginformasikan perencanaan operasional Q3."
-            ],
-            keySkills: ["Ilmu Data", "Pemodelan Statistik", "CRISP-DM", "Analitik Strategis"]
-        }
+        image: "/images/bonbon.webp"
+    },
+    {
+        id: 'bank-sampah',
+        title: "Bank Sampah Faperta UNMUL",
+        shortDesc: "Sistem informasi manajemen bank sampah untuk mempermudah pencatatan dan pengelolaan transaksi.",
+        tags: ["Web Development", "Manajemen"],
+        link: "#",
+        image: "/images/banksampah.webp"
+    },
+    {
+        id: 'kaltiminaja',
+        title: "Kaltiminaja",
+        shortDesc: "Spesialis Wisata Kalimantan Timur & Kepulauan Berau, web travel agent wisata untuk wilayah Kaltim.",
+        tags: ["Web Development", "Travel", "Tourism"],
+        link: "https://kaltiminaja.vercel.app/",
+        image: "/images/kaltiminaja.webp"
     }
 ];
 
@@ -347,65 +319,3 @@ export const aboutData = {
     }
 };
 
-// ─── Helpers ──────────────────────────────────────────────────
-
-/** Get all detail-page items (orgs + experiences + projects) */
-export type DetailItem = {
-    id: string;
-    title: string;
-    subtitle: string;
-    date: string;
-    shortDesc: string;
-    tags?: string[];
-    businessCase: BusinessCaseContent;
-    type: string;
-    link?: string;
-};
-
-export function getAllDetailItems(): DetailItem[] {
-    const orgs: DetailItem[] = organizationData.map(o => ({
-        id: o.id,
-        title: o.title,
-        subtitle: o.org,
-        date: o.date,
-        shortDesc: o.shortDesc,
-        tags: o.businessCase.keySkills,
-        businessCase: o.businessCase,
-        type: 'Organisasi',
-        link: o.link
-    }));
-
-    const exps: DetailItem[] = experienceData.map(e => ({
-        id: e.id,
-        title: e.title,
-        subtitle: e.subtitle,
-        date: e.date,
-        shortDesc: e.shortDesc,
-        tags: e.businessCase.keySkills,
-        businessCase: e.businessCase,
-        type: 'Pengalaman',
-        link: e.link
-    }));
-
-    const projs: DetailItem[] = projectsData.map(p => ({
-        id: p.id,
-        title: p.title,
-        subtitle: p.category,
-        date: "",
-        shortDesc: p.shortDesc,
-        tags: p.tags,
-        businessCase: p.businessCase,
-        type: 'Proyek',
-        link: p.link
-    }));
-
-    return [...projs, ...orgs, ...exps];
-}
-
-export function getDetailItemById(id: string): DetailItem | undefined {
-    return getAllDetailItems().find(item => item.id === id);
-}
-
-export function getDetailItemPreviewPath(id: string): string {
-    return `/projects/${id}/opengraph-image`;
-}

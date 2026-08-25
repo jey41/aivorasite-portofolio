@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { FilterableProjects } from '@/components/content/filterable-projects';
 import { SkillIcon } from '@/components/ui/skill-icon';
-import { projectsData, experienceData, organizationData, skillsData } from '@/data/portfolio';
+import { projectsData, skillsData } from '@/data/portfolio';
 
-type TabType = 'Projects' | 'Skills' | 'Experiences' | 'Organizations';
+type TabType = 'Projects' | 'Skills';
 type MarqueeStyle = React.CSSProperties & {
   '--marquee-duration': string;
   '--marquee-gap': string;
@@ -14,7 +14,7 @@ type MarqueeStyle = React.CSSProperties & {
 export function PortfolioTabs() {
   const [activeTab, setActiveTab] = useState<TabType>('Projects');
 
-  const tabs: TabType[] = ['Projects', 'Skills', 'Experiences', 'Organizations'];
+  const tabs: TabType[] = ['Projects', 'Skills'];
 
   return (
     <section className="w-full bg-background border-b-4 border-on-surface py-20 px-8">
@@ -96,79 +96,6 @@ export function PortfolioTabs() {
             </div>
           )}
 
-          {/* Experiences Content */}
-          {activeTab === 'Experiences' && (
-            <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="relative pl-8 md:pl-16 space-y-12">
-                {experienceData.map((item, index) => (
-                  <div key={item.id} className="relative group">
-                    {/* Vertical line connecting to next item */}
-                    {index !== experienceData.length - 1 && (
-                      <div className="absolute top-9 -left-[16px] md:-left-[32px] w-1 h-[calc(100%+48px)] bg-on-surface z-0"></div>
-                    )}
-                    {/* Dot */}
-                    <div className="absolute top-6 -left-[26px] md:-left-[42px] w-6 h-6 rounded-full bg-secondary border-4 border-on-surface z-10 group-hover:bg-primary-container transition-colors"></div>
-                    <div className="bg-surface-container-low border-4 border-on-surface p-6 md:p-8 ml-6 md:ml-10 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300">
-                      <p className="font-label-bold text-[16px] text-on-surface bg-primary-container border-2 border-on-surface inline-block px-4 py-1 mb-4 uppercase">
-                        {item.date}
-                      </p>
-                      <h3 className="font-headline-md text-[28px] font-bold text-on-surface uppercase mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="font-label-bold text-[18px] text-secondary mb-6">
-                        {item.subtitle}
-                      </p>
-                      <ul className="flex flex-col gap-3 font-body-md text-[16px] opacity-90 text-left">
-                        {item.businessCase.executionHighlights.map((hl, i) => (
-                          <li key={i} className="flex gap-3 items-start">
-                            <span className="w-2 h-2 mt-2 bg-on-surface shrink-0"></span>
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Organizations Content */}
-          {activeTab === 'Organizations' && (
-            <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="relative pl-8 md:pl-16 space-y-12">
-                {organizationData.map((item, index) => (
-                  <div key={item.id} className="relative group">
-                    {/* Vertical line connecting to next item */}
-                    {index !== organizationData.length - 1 && (
-                      <div className="absolute top-9 -left-[16px] md:-left-[32px] w-1 h-[calc(100%+48px)] bg-on-surface z-0"></div>
-                    )}
-                    {/* Dot */}
-                    <div className="absolute top-6 -left-[26px] md:-left-[42px] w-6 h-6 rounded-full bg-secondary-container border-4 border-on-surface z-10 group-hover:bg-primary transition-colors"></div>
-                    <div className="bg-surface-container-low border-4 border-on-surface p-6 md:p-8 ml-6 md:ml-10 hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300">
-                      <p className="font-label-bold text-[16px] text-on-surface bg-primary-container border-2 border-on-surface inline-block px-4 py-1 mb-4 uppercase">
-                        {item.date}
-                      </p>
-                      <h3 className="font-headline-md text-[28px] font-bold text-on-surface uppercase mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="font-label-bold text-[18px] text-secondary mb-6">
-                        {item.org}
-                      </p>
-                      <ul className="flex flex-col gap-3 font-body-md text-[16px] opacity-90 text-left">
-                        {item.businessCase.executionHighlights.map((hl, i) => (
-                          <li key={i} className="flex gap-3 items-start">
-                            <span className="w-2 h-2 mt-2 bg-on-surface shrink-0"></span>
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
         </div>
       </div>

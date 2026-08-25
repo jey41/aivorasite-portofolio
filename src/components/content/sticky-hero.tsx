@@ -81,11 +81,11 @@ const Section2 = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> })
           <div className="absolute -top-4 -left-4 w-8 h-8 bg-secondary brutalist-border z-10"></div>
           <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-secondary brutalist-border z-10"></div>
           <Image 
-            src="/images/hero_section.png" 
+            src="/images/hero_section.webp" 
             alt="Muhammad Hisyam Nugroho" 
             width={800}
             height={1000}
-            className="w-full h-full object-cover border-2 border-on-surface filter grayscale hover:grayscale-0 transition-all duration-500" 
+            className="w-full h-full object-cover border-2 border-on-surface transition-all duration-500" 
           />
         </div>
         
